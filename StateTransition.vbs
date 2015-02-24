@@ -15,9 +15,9 @@
 
 ' Resolve Workflow state IDs
 Dim approvedStateID
-approvedStateID = VaultWorkflowOperations.GetWorkflowStateIDByAlias( "M-Files.QMS.SSDC.Workflow.NewMajorVer.State.ContentApproved" )
+approvedStateID = Vault.WorkflowOperations.GetWorkflowStateIDByAlias( "M-Files.QMS.SSDC.Workflow.NewMajorVer.State.ContentApproved" )
 Dim awaitingStateID
-awaitingStateID = VaultWorkflowOperations.GetWorkflowStateIDByAlias( "M-Files.QMS.SSDC.Workflow.NewMajorVer.State.PendApproval" )
+awaitingStateID = Vault.WorkflowOperations.GetWorkflowStateIDByAlias( "M-Files.QMS.SSDC.Workflow.NewMajorVer.State.PendApproval" )
 
 ' Resolve Property definition IDs
 Dim approversPropertyID

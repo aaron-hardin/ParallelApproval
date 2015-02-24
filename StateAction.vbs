@@ -61,14 +61,8 @@ Function AddLookup( propId, lookupId )
 		Call lookups.Add( -1, lookup )
 		Call pv.Value.SetValueToMultiSelectLookup( lookups )
 		AddLookup = True
-	End If
 
-	If PropertyValues.IndexOf( propId ) = -1 Then
-		Call PropertyValues.Add( -1, pv )
-	Else
-		Call PropertyValues.Remove( PropertyValues.IndexOf( propId ) )
-		Call PropertyValues.Add( -1, pv )
-		' TODO: this needs testing, do we need to set this back on PropertyValues?
+		Call Vault.ObjectPropertyOperations.SetProperty( ObjVer, pv )
 	End If
 End Function
 
@@ -93,6 +87,8 @@ Function RemoveLookup( propId, lookupId )
 			' TODO: this needs testing, do we need to set this back on PropertyValues?
 			Call pv.Value.SetValueToMultiSelectLookup( lookups )
 			RemoveLookup = True
+
+			Call Vault.ObjectPropertyOperations.SetProperty( ObjVer, pv )
 		End If
 	End If
 End Function
