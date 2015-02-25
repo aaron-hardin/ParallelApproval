@@ -22,6 +22,8 @@ approvedByPropertyID = Vault.PropertyDefOperations.GetPropertyDefIDByAlias( "M-F
 Call RemoveLookup( approversPropertyID, CurrentUserID )
 Call AddLookup( approvedByPropertyID, CurrentUserID )
 
+Call SetLastModifiedBy(ObjVer, CurrentUserID.Value)
+
 ' Helper function for determining if the current object has a value in the given property
 Function HasValue( id )
 	HasValue = False
@@ -91,4 +93,19 @@ Function RemoveLookup( propId, lookupId )
 			Call Vault.ObjectPropertyOperations.SetProperty( ObjVer, pv )
 		End If
 	End If
+End Function
+
+' Example usage: Dim updated : Set updated = SetLastModifiedBy(ObjVer, CurrentUserID.Value)
+' Example usage: Call SetLastModifiedBy(ObjVer, CurrentUserID.Value)
+Function SetLastModifiedBy(obj, lastModifiedByUser)
+	' Set who modified object last
+	' obj is an ObjVer
+	' lastModifiedByUser is userId
+	' returns ObjectVersionAndProperties
+	Dim tvLastUser : Set tvLastUser = CreateObject("MFilesAPI.TypedValue")
+	tvLastUser.SetValue 9, lastModifiedByUser
+
+	Dim tvTime : Set tvTime = CreateObject("MFilesAPI.TypedValue")
+
+	Set SetLastModifiedBy = Vault.ObjectPropertyOperations.SetLastModificationInfoAdmin(obj, True, tvLastUser, False, tvTime)
 End Function
