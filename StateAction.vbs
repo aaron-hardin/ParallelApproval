@@ -18,11 +18,47 @@ Dim approversPropertyID
 approversPropertyID = Vault.PropertyDefOperations.GetPropertyDefIDByAlias( "M-Files.QMS.SSDC.Approvers" )
 Dim approvedByPropertyID
 approvedByPropertyID = Vault.PropertyDefOperations.GetPropertyDefIDByAlias( "M-Files.QMS.SSDC.ApprovedBy" )
+Dim signatureIdentifierID
+signatureIdentifierID = Vault.PropertyDefOperations.GetPropertyDefIDByAlias( "M-Files.QMS.Signature.Identifier" )
+Dim signatureID
+signatureID = Vault.PropertyDefOperations.GetPropertyDefIDByAlias( "M-Files.QMS.Signatures" )
+Dim userAccountID
+userAccountID = Vault.PropertyDefOperations.GetPropertyDefIDByAlias( "M-Files.QMS.UserAccount" )
 
 Call RemoveLookup( approversPropertyID, CurrentUserID )
 Call AddLookup( approvedByPropertyID, CurrentUserID )
 
+Call UpdateSignatureIdentifier()
+
 Call SetLastModifiedBy(ObjVer, CurrentUserID.Value)
+
+' Should only be used where there is only one Signature per person.
+Sub UpdateSignatureIdentifier()
+	' Get Signatures Property
+	' Note: must exist
+	' TODO: this section needs some error handling
+	Dim signaturesLookups
+	Set signaturesLookups = PropertyValues.SearchForProperty( signatureID ).Value.GetValueAsLookups()
+	Dim signaturesLookup
+	For Each signaturesLookup in signaturesLookups
+		Dim signatureObjID
+		Set signatureObjID = CreateObject( "MFilesAPI.ObjID" )
+		Call signatureObjID.SetIDs( signaturesLookup.ObjectType, signaturesLookup.Item )
+		Dim signatureObjVer
+		Set signatureObjVer = Vault.ObjectOperations.GetLatestObjVer( signatureObjID, False, True )
+		Dim signaturesLookupID
+		signaturesLookupID = Vault.ObjectPropertyOperations.GetProperty( signatureObjVer, userAccountID ).Value.GetLookupID()
+		If signaturesLookupID = CurrentUserID Then
+			Dim identifierProperty
+			Set identifierProperty = Vault.ObjectPropertyOperations.GetProperty( signatureObjVer, signatureIdentifierID )
+			Dim identifierText : identifierText = identifierProperty.GetValueAsLocalizedText() & CurrentUserID
+			Call identifierProperty.Value.SetValue( 1, identifierText ) 'MFDatatypeText
+			Dim checkedOut : Set checkedOut = Vault.ObjectOperations.CheckOut( signatureObjID )
+			Call Vault.ObjectPropertyOperations.SetProperty( checkedOut.ObjVer, identifierProperty )
+			Call Vault.ObjectOperations.CheckIn( checkedOut.ObjVer )
+		End If
+	Next
+End Sub
 
 ' Helper function for determining if the current object has a value in the given property
 Function HasValue( id )
