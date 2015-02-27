@@ -1,0 +1,887 @@
+<?xml version="1.0" encoding="utf-8"?>
+<structure xml:space="preserve">
+  <capabilities value="536">
+    <DescribeContent value="8" />
+    <MapSemantics value="16" />
+    <DescribeStructure value="512" />
+  </capabilities>
+  <languages>
+    <language code="" id="0" name="Default language" />
+  </languages>
+  <objtypes>
+    <objtype aliases="" builtin="true" external="false" guid="{4A190FFC-6A67-430A-8FA7-37BA2ED23D16}" id="2" name="Class groups" nameplural="Class groups" namesingular="Class group" realobj="false" />
+    <objtype aliases="" builtin="true" external="true" guid="{E396EBFC-5D0C-47A4-86A2-D27DAA479237}" id="6" name="Users" nameplural="Users" namesingular="User" realobj="false" />
+    <objtype aliases="" builtin="true" external="true" guid="{B2251216-28C4-4534-BBEA-41ECE38BE925}" id="8" name="States" nameplural="States" namesingular="State" realobj="false" />
+    <objtype aliases="" builtin="true" external="false" guid="{53F0C8FD-0BF0-47C4-8FA6-4C2D0DADB650}" id="0" name="Document" nameplural="Documents" namesingular="Document" realobj="true" />
+    <objtype aliases="M-Files.QMS.Person" builtin="false" external="false" guid="{626FF083-E94D-47DF-B103-626BDA082EA3}" id="102" name="Person" nameplural="People" namesingular="Person" realobj="true" />
+    <objtype aliases="M-Files.QMS.Signature.ObjectType" builtin="false" external="false" guid="{A222527C-FFE9-42D8-BDF0-384B8353F305}" id="109" name="Electronic Signature" nameplural="Electronic Signatures" namesingular="Electronic Signature" realobj="true" />
+    <objtype aliases="M-Files.VersionControl.ControlledStatus" builtin="false" external="false" guid="{4D1F7A37-528B-4D88-B57D-8928D11CF873}" id="128" name="Controlled Statuses" nameplural="Controlled Statuses" namesingular="Controlled Status" realobj="false" />
+    <objtype aliases="M-Files.ChangeRequest.ChangeRequest" builtin="false" external="false" guid="{DCB7270C-B7C8-4913-A03B-BE3A9A5B43DC}" id="137" name="Change Request" nameplural="Change Requests" namesingular="Change Request" realobj="true" />
+  </objtypes>
+  <propertydefs>
+    <propertydef aliases="" builtin="true" guid="{3E2BB7EB-C49E-4C8C-825C-CAE0AEBA9A06}" id="0" name="Name or title">
+      <datatype>
+        <Text />
+      </datatype>
+    </propertydef>
+    <propertydef aliases="" builtin="true" guid="{EAB2B9D9-809E-49A5-9FA6-4EA5C2802F8C}" id="20" name="Created">
+      <datatype>
+        <Timestamp />
+      </datatype>
+    </propertydef>
+    <propertydef aliases="" builtin="true" guid="{EA3BBB33-C76F-4108-9331-14BEFB909515}" id="25" name="Created by">
+      <datatype>
+        <Lookup isdefault="false" isowner="false" otid="6" />
+      </datatype>
+    </propertydef>
+    <propertydef aliases="" builtin="true" guid="{492A908E-02F7-47D1-9ECB-2C5D8F8D0142}" id="21" name="Last modified">
+      <datatype>
+        <Timestamp />
+      </datatype>
+    </propertydef>
+    <propertydef aliases="" builtin="true" guid="{63FC0676-A23A-4C1B-866C-7117D1B975D9}" id="23" name="Last modified by">
+      <datatype>
+        <Lookup isdefault="false" isowner="false" otid="6" />
+      </datatype>
+    </propertydef>
+    <propertydef aliases="" builtin="true" guid="{D0661E73-9451-4F52-AFFB-DBD34452992E}" id="24" name="Status changed">
+      <datatype>
+        <Timestamp />
+      </datatype>
+    </propertydef>
+    <propertydef aliases="" builtin="true" guid="{3DCEC688-50C5-4796-9417-B0DDE5CFF3A8}" id="22" name="Single file">
+      <datatype>
+        <Boolean />
+      </datatype>
+    </propertydef>
+    <propertydef aliases="" builtin="true" guid="{C6BECA16-3632-4D03-BE5F-E6B4A0D18738}" id="101" name="Class groups">
+      <datatype>
+        <MultiSelectLookup isdefault="false" isowner="false" otid="2" />
+      </datatype>
+    </propertydef>
+    <propertydef aliases="" builtin="true" guid="{D9BC5E8D-8006-423C-9832-CE095E36014A}" id="30" name="Size on server (this version)">
+      <datatype>
+        <Integer />
+      </datatype>
+    </propertydef>
+    <propertydef aliases="" builtin="true" guid="{87926D43-342B-4804-9891-52BEC6E6DA2B}" id="31" name="Size on server (all versions)">
+      <datatype>
+        <Integer />
+      </datatype>
+    </propertydef>
+    <propertydef aliases="" builtin="true" guid="{AE7DD3CE-55EE-4DE6-BE7E-0ABB433C6582}" id="32" name="Marked for archiving">
+      <datatype>
+        <Boolean />
+      </datatype>
+    </propertydef>
+    <propertydef aliases="" builtin="true" guid="{416CDA30-4140-489A-BD19-49FB031CC675}" id="86" name="Signature manifestation">
+      <datatype>
+        <MultiLineText />
+      </datatype>
+    </propertydef>
+    <propertydef aliases="" builtin="true" guid="{4ED05F25-56AC-4673-9389-92184044B69C}" id="89" name="Object changed">
+      <datatype>
+        <Timestamp />
+      </datatype>
+    </propertydef>
+    <propertydef aliases="M-Files.QMS.UserAccount;M-Files.UserSynchronization.UserName;M-Files.QMS.Signature.Signer" builtin="false" controltype="Default" full="true" guid="{A8C64B35-1A49-41A0-AD2E-8EB76AF6A8A4}" id="1025" name="User Account" tip="" updatetype="Normal">
+      <datatype>
+        <Lookup allowautomaticpermissions="false" isconflict="false" isdefault="false" isowner="false" otid="6">
+          <sorting ascending="true" type="ByDisplayName" />
+          <ownerpd id="Auto" type="Filter" />
+          <staticfilter />
+        </Lookup>
+      </datatype>
+      <icon bytes="0" />
+      <acl>
+        <cached id="aclcache-7-1" />
+      </acl>
+      <defaultvalue />
+      <automaticvalue calcorder="100" type="None">
+        <CalcWithPlaceholders active="false" value="" />
+        <CalcWithVBScript active="false" empty="true" />
+        <AutoNumberSimple active="false" value="1" />
+        <AutoNumberWithVBScript active="false" empty="true" />
+      </automaticvalue>
+      <objecttype all="true" />
+      <validation type="None">
+        <string />
+        <RegEx active="false" value="" />
+        <VBScript active="false" empty="true" />
+      </validation>
+      <formatting type="None" />
+    </propertydef>
+    <propertydef aliases="M-Files.QMS.Signature.Reason" builtin="false" guid="{E4C64F55-D50D-4218-8FA7-1B333F2BF67C}" id="1059" name="Reason">
+      <datatype>
+        <Text />
+      </datatype>
+    </propertydef>
+    <propertydef aliases="M-Files.QMS.Signature.Meaning" builtin="false" guid="{A9503262-EB88-4C4E-A167-7B17787FD092}" id="1060" name="Meaning">
+      <datatype>
+        <MultiLineText />
+      </datatype>
+    </propertydef>
+    <propertydef aliases="M-Files.QMS.Signatures" builtin="false" controltype="Default" full="true" guid="{EC28F308-F535-417D-93D6-3AAF330548AA}" id="1061" name="Signature(s)" tip="" updatetype="Normal">
+      <datatype>
+        <MultiSelectLookup allowautomaticpermissions="false" isconflict="false" isdefault="false" isowner="false" otid="109">
+          <sorting ascending="true" type="ByDisplayName" />
+          <ownerpd id="Auto" type="Filter" />
+          <staticfilter />
+        </MultiSelectLookup>
+      </datatype>
+      <icon bytes="0" />
+      <acl>
+        <cached id="aclcache-7-2" />
+      </acl>
+      <defaultvalue />
+      <automaticvalue calcorder="100" type="None">
+        <CalcWithPlaceholders active="false" value="" />
+        <CalcWithVBScript active="false" contenttype="vbs" empty="false" pathfrombase="Metadata\AdditionalData\PropertyDefs\1061\Calculation.vbs" />
+        <AutoNumberSimple active="false" value="1" />
+        <AutoNumberWithVBScript active="false" empty="true" />
+      </automaticvalue>
+      <objecttype all="true" />
+      <validation type="None">
+        <string />
+        <RegEx active="false" value="" />
+        <VBScript active="false" empty="true" />
+      </validation>
+      <formatting type="None" />
+    </propertydef>
+    <propertydef aliases="M-Files.QMS.Signature.Date" builtin="false" guid="{49547B62-0EA9-4579-A895-DEFE4D333F8B}" id="1062" name="Signature Date">
+      <datatype>
+        <Date />
+      </datatype>
+    </propertydef>
+    <propertydef aliases="M-Files.QMS.Signature.UTCTimestampText" builtin="false" guid="{1EA964A2-9370-4B88-9054-FC3A38DB7125}" id="1063" name="UTC Timestamp">
+      <datatype>
+        <Text />
+      </datatype>
+    </propertydef>
+    <propertydef aliases="M-Files.QMS.Signature.Title" builtin="false" controltype="Default" full="true" guid="{A7130D70-66CD-4F73-AB2D-E6664207A5F2}" id="1064" name="Signature Title" tip="" updatetype="Normal">
+      <datatype>
+        <Text />
+      </datatype>
+      <icon bytes="0" />
+      <acl>
+        <cached id="aclcache-7-1" />
+      </acl>
+      <defaultvalue />
+      <automaticvalue calcorder="100" type="CalcWithPlaceholders">
+        <CalcWithPlaceholders active="true" value="%PROPERTY_1059%: %PROPERTY_1065%, %PROPERTY_1062%" />
+        <CalcWithVBScript active="false" contenttype="vbs" empty="false" pathfrombase="Metadata\AdditionalData\PropertyDefs\1064\Calculation.vbs" />
+        <AutoNumberSimple active="false" value="1" />
+        <AutoNumberWithVBScript active="false" empty="true" />
+      </automaticvalue>
+      <objecttype all="false" otid="109" />
+      <validation type="None">
+        <string />
+        <RegEx active="false" value="" />
+        <VBScript active="false" empty="true" />
+      </validation>
+      <formatting type="None" />
+    </propertydef>
+    <propertydef aliases="M-Files.QMS.Signature.Signer.Name" builtin="false" guid="{C4E2F66E-2992-468F-8DDC-EB5C75079477}" id="1065" name="Signer's Name">
+      <datatype>
+        <Text />
+      </datatype>
+    </propertydef>
+    <propertydef aliases="M-Files.QMS.Signature.Signer.Account" builtin="false" guid="{E4257DAF-2DD4-4751-A4BC-C8575EE418ED}" id="1066" name="Signer's Login">
+      <datatype>
+        <Text />
+      </datatype>
+    </propertydef>
+    <propertydef aliases="M-Files.QMS.Signature.ToState" builtin="false" guid="{B7D399FC-4768-43F8-8E5F-E4ACB626B813}" id="1067" name="To State">
+      <datatype>
+        <Lookup isdefault="false" isowner="false" otid="8" />
+      </datatype>
+    </propertydef>
+    <propertydef aliases="M-Files.QMS.Signature.Signer.Person" builtin="false" guid="{317A74CD-1449-4498-AFBA-74A6FD46AE02}" id="1068" name="Signer (Person)">
+      <datatype>
+        <Lookup isdefault="false" isowner="false" otid="102" />
+      </datatype>
+    </propertydef>
+    <propertydef aliases="M-Files.QMS.Signature.LocalTimestampText" builtin="false" guid="{E5DF2616-FCDE-4CC8-A0CE-BC3268B1BE60}" id="1069" name="User Timestamp">
+      <datatype>
+        <Text />
+      </datatype>
+    </propertydef>
+    <propertydef aliases="M-Files.QMS.Signature.UTCTimestamp" builtin="false" guid="{9234FDCA-3C6A-45D2-9EC4-1ADE055198F9}" id="1070" name="Local Timestamp">
+      <datatype>
+        <Timestamp />
+      </datatype>
+    </propertydef>
+    <propertydef aliases="M-Files.QMS.Signature.Identifier" builtin="false" controltype="Default" full="true" guid="{70D371DB-CADF-4327-8660-8E57FCF142D0}" id="1071" name="Signature Identifier" tip="" updatetype="Normal">
+      <datatype>
+        <Text />
+      </datatype>
+      <icon bytes="0" />
+      <acl>
+        <cached id="aclcache-7-3" />
+      </acl>
+      <defaultvalue />
+      <automaticvalue calcorder="100" type="CalcWithVBScript">
+        <CalcWithPlaceholders active="false" value="" />
+        <CalcWithVBScript active="true" empty="true" />
+        <AutoNumberSimple active="false" value="1" />
+        <AutoNumberWithVBScript active="false" empty="true" />
+      </automaticvalue>
+      <objecttype all="true" />
+      <validation type="None">
+        <string />
+        <RegEx active="false" value="" />
+        <VBScript active="false" empty="true" />
+      </validation>
+      <formatting type="None" />
+    </propertydef>
+    <propertydef aliases="M-Files.QMS.Signature.FromState" builtin="false" guid="{88DA193C-0376-4364-AF70-88A50CC42CC9}" id="1072" name="From State">
+      <datatype>
+        <Lookup isdefault="false" isowner="false" otid="8" />
+      </datatype>
+    </propertydef>
+    <propertydef aliases="M-Files.QMS.Signature.AdditionalInfo" builtin="false" guid="{5BC34FCB-0AA3-41D7-B60D-EDD9F857083D}" id="1073" name="Additional Signature Information">
+      <datatype>
+        <MultiLineText />
+      </datatype>
+    </propertydef>
+    <propertydef aliases="M-Files.VersionControl.WorkingCopies" builtin="false" guid="{D1322536-FFCC-46C9-9C60-630CD3D40EE8}" id="1168" name="Working Copy(s)">
+      <datatype>
+        <MultiSelectLookup isdefault="false" isowner="false" otid="0" />
+      </datatype>
+    </propertydef>
+    <propertydef aliases="M-Files.VersionControl.ControlledStatus" builtin="false" guid="{7B5C93EF-4776-4F1B-97AD-5D27EED7B8B9}" id="1176" name="Controlled Status">
+      <datatype>
+        <Lookup isdefault="false" isowner="false" otid="128" />
+      </datatype>
+    </propertydef>
+    <propertydef aliases="M-Files.QMS.EffectiveDate" builtin="false" guid="{AFB62006-1C76-4C92-B2AE-AF2C0AEA17E0}" id="1188" name="Effective Date">
+      <datatype>
+        <Date />
+      </datatype>
+    </propertydef>
+    <propertydef aliases="M-Files.ChangeRequest.AffectingChangeRequest" builtin="false" guid="{D8388E5E-9016-4D67-A929-FC1C780319E1}" id="1222" name="Affecting Change Request">
+      <datatype>
+        <Lookup isdefault="false" isowner="false" otid="137" />
+      </datatype>
+    </propertydef>
+    <propertydef aliases="M-Files.QMS.SSDC.Approvers" builtin="false" controltype="Default" full="true" guid="{00B88831-2EF7-4FEE-8ACC-E7D743B3153C}" id="1223" name="Approvers" tip="" updatetype="Normal">
+      <datatype>
+        <MultiSelectLookup allowautomaticpermissions="false" isconflict="false" isdefault="false" isowner="false" otid="6">
+          <sorting ascending="true" type="ByDisplayName" />
+          <ownerpd id="Auto" type="Filter" />
+          <staticfilter />
+        </MultiSelectLookup>
+      </datatype>
+      <icon bytes="0" />
+      <acl>
+        <cached id="aclcache-7-1" />
+      </acl>
+      <defaultvalue />
+      <automaticvalue calcorder="100" type="None">
+        <CalcWithPlaceholders active="false" value="" />
+        <CalcWithVBScript active="false" empty="true" />
+        <AutoNumberSimple active="false" value="1" />
+        <AutoNumberWithVBScript active="false" empty="true" />
+      </automaticvalue>
+      <objecttype all="true" />
+      <validation type="None">
+        <string />
+        <RegEx active="false" value="" />
+        <VBScript active="false" empty="true" />
+      </validation>
+      <formatting type="None" />
+    </propertydef>
+    <propertydef aliases="M-Files.QMS.SSDC.ApprovedBy" builtin="false" controltype="Default" full="true" guid="{B49011E6-C57D-46B0-B917-B64AFCA058CF}" id="1224" name="Approved By" tip="" updatetype="Normal">
+      <datatype>
+        <MultiSelectLookup allowautomaticpermissions="false" isconflict="false" isdefault="false" isowner="false" otid="6">
+          <sorting ascending="true" type="ByDisplayName" />
+          <ownerpd id="Auto" type="Filter" />
+          <staticfilter />
+        </MultiSelectLookup>
+      </datatype>
+      <icon bytes="0" />
+      <acl>
+        <cached id="aclcache-7-1" />
+      </acl>
+      <defaultvalue />
+      <automaticvalue calcorder="100" type="None">
+        <CalcWithPlaceholders active="false" value="" />
+        <CalcWithVBScript active="false" empty="true" />
+        <AutoNumberSimple active="false" value="1" />
+        <AutoNumberWithVBScript active="false" empty="true" />
+      </automaticvalue>
+      <objecttype all="true" />
+      <validation type="None">
+        <string />
+        <RegEx active="false" value="" />
+        <VBScript active="false" empty="true" />
+      </validation>
+      <formatting type="None" />
+    </propertydef>
+  </propertydefs>
+  <namedacls>
+    <namedacl aliases="" builtin="true" guid="{A470B682-2B52-48EF-B3A8-1A4B3F2B6B35}" id="-1" name="Full control for all internal users" type="Normal" />
+    <namedacl aliases="M-Files.QMS.Locked" builtin="false" guid="{098C8B95-1F50-4342-8DA9-2E1F38135266}" id="1" name="Locked" type="Normal" />
+  </namedacls>
+  <classes>
+    <class aliases="M-Files.QMS.Signature.Class.Executed" builtin="true" deleted="false" full="true" guid="{93C8583E-52BA-429B-8E0D-F0BDFB0A7C92}" id="11" name="Executed Signature" otid="109">
+      <icon bytes="29926" contenttype="ico" pathfrombase="Metadata\AdditionalData\Classes\1-11\Default.ico" />
+      <associatedproperties>
+        <property id="1064" required="true" />
+        <property id="1059" required="false" />
+        <property id="1060" required="false" />
+        <property id="1025" required="false" />
+        <property id="1068" required="false" />
+        <property id="1065" required="false" />
+        <property id="1066" required="false" />
+        <property id="1062" required="false" />
+        <property id="1069" required="false" />
+        <property id="1070" required="false" />
+        <property id="1063" required="false" />
+        <property id="1067" required="false" />
+        <property id="1072" required="false" />
+        <property id="1071" required="false" />
+        <property id="1073" required="false" />
+        <property id="20" required="true" />
+        <property id="25" required="true" />
+        <property id="21" required="true" />
+        <property id="23" required="true" />
+        <property id="24" required="true" />
+        <property id="89" required="true" />
+        <property id="22" required="true" />
+        <property id="101" required="false" />
+        <property id="30" required="true" />
+        <property id="31" required="true" />
+        <property id="32" required="true" />
+      </associatedproperties>
+      <nameproperty id="1064" />
+      <workflow forced="false" id="0" />
+      <acl>
+        <cached id="aclcache-2-1" />
+      </acl>
+    </class>
+    <class aliases="M-Files.VersionControl.Branch" builtin="false" deleted="false" guid="{6EAF79B0-E73D-44B7-9C1B-CC20500B385D}" id="50" name="Working Copy" otid="0" />
+  </classes>
+  <classgroups />
+  <workflows>
+    <workflow aliases="M-Files.QMS.NewMinorVersion" deleted="false" guid="{BAF30308-A0F9-4401-850E-4F0D42FC7AB6}" id="107" name="New Minor Version" />
+    <workflow aliases="M-Files.QMS.NewMajorVersion" deleted="false" guid="{A5B13A24-E3D4-4DB3-807B-AD34705529B0}" id="108" name="New Major Version" />
+    <workflow aliases="M-Files.QMS.SSDC.Workflow.NewMajorVer" deleted="false" full="true" guid="{3523C2D5-C2E7-4C3E-A344-FD2CC163B686}" id="119" name="New Major Version Workflow">
+      <description />
+      <withclass id="50" />
+      <acl>
+        <cached id="aclcache-3-1" />
+      </acl>
+      <states>
+        <state id="173" />
+        <state id="174" />
+        <state id="178" />
+        <state id="175" />
+        <state id="176" />
+        <state id="177" />
+      </states>
+      <transitions>
+        <transition fromstate="0" tostate="173">
+          <acl>
+            <cached id="aclcache-5-1" />
+          </acl>
+          <signature required="false" separate="false">
+            <manifestation pdid="86" />
+            <reason />
+            <meaning>'%SIGNED_FROM_STATE%' -&gt; '%SIGNED_TO_STATE%'</meaning>
+            <additionalinfo>%SIGNED_AT% %SIGNED_BY%</additionalinfo>
+            <signatureid />
+          </signature>
+        </transition>
+        <transition fromstate="175" tostate="176">
+          <acl>
+            <cached id="aclcache-5-2" />
+          </acl>
+          <signature required="false" separate="false">
+            <manifestation pdid="86" />
+            <reason />
+            <meaning>'%SIGNED_FROM_STATE%' -&gt; '%SIGNED_TO_STATE%'</meaning>
+            <additionalinfo>%SIGNED_AT% %SIGNED_BY%</additionalinfo>
+            <signatureid />
+          </signature>
+        </transition>
+        <transition fromstate="176" tostate="177">
+          <acl>
+            <cached id="aclcache-5-3" />
+          </acl>
+          <signature required="true" separate="false">
+            <manifestation pdid="86" />
+            <reason>Document Release</reason>
+            <meaning>I approve this document for release and official use upon reaching the assigned effective date.
+
+'%SIGNED_FROM_STATE%' -&gt; '%SIGNED_TO_STATE%' by 'SIGNED_BY%', SweetSpot Diabetes Care Management Representative.
+
+</meaning>
+            <additionalinfo>%SIGNED_AT% %SIGNED_BY%</additionalinfo>
+            <signatureid>Document Released *DEVIATION*</signatureid>
+          </signature>
+        </transition>
+        <transition fromstate="173" tostate="174">
+          <acl>
+            <cached id="aclcache-5-1" />
+          </acl>
+          <signature required="false" separate="false">
+            <manifestation pdid="86" />
+            <reason />
+            <meaning>'%SIGNED_FROM_STATE%' -&gt; '%SIGNED_TO_STATE%'</meaning>
+            <additionalinfo>%SIGNED_AT% %SIGNED_BY%</additionalinfo>
+            <signatureid />
+          </signature>
+        </transition>
+        <transition fromstate="174" tostate="173">
+          <acl>
+            <cached id="aclcache-5-4" />
+          </acl>
+          <signature required="false" separate="false">
+            <manifestation pdid="86" />
+            <reason />
+            <meaning>'%SIGNED_FROM_STATE%' -&gt; '%SIGNED_TO_STATE%'</meaning>
+            <additionalinfo>%SIGNED_AT% %SIGNED_BY%</additionalinfo>
+            <signatureid />
+          </signature>
+        </transition>
+        <transition fromstate="174" tostate="178">
+          <acl>
+            <cached id="aclcache-5-5" />
+          </acl>
+          <signature required="true" separate="true">
+            <manifestation pdid="86" />
+            <reason>Document Approval</reason>
+            <meaning>I approve this document.
+
+'%SIGNED_FROM_STATE%' -&gt; '%SIGNED_TO_STATE%'</meaning>
+            <additionalinfo>%SIGNED_AT% %SIGNED_BY%</additionalinfo>
+            <signatureid>Document Approval</signatureid>
+          </signature>
+        </transition>
+        <transition fromstate="178" tostate="174">
+          <acl>
+            <cached id="aclcache-5-2" />
+          </acl>
+          <signature required="false" separate="false">
+            <manifestation pdid="86" />
+            <reason />
+            <meaning>'%SIGNED_FROM_STATE%' -&gt; '%SIGNED_TO_STATE%'</meaning>
+            <additionalinfo>%SIGNED_AT% %SIGNED_BY%</additionalinfo>
+            <signatureid />
+          </signature>
+        </transition>
+        <transition fromstate="178" tostate="175">
+          <acl>
+            <cached id="aclcache-5-2" />
+          </acl>
+          <signature required="false" separate="false">
+            <manifestation pdid="86" />
+            <reason />
+            <meaning>'%SIGNED_FROM_STATE%' -&gt; '%SIGNED_TO_STATE%'</meaning>
+            <additionalinfo>%SIGNED_AT% %SIGNED_BY%</additionalinfo>
+            <signatureid />
+          </signature>
+        </transition>
+      </transitions>
+    </workflow>
+  </workflows>
+  <states>
+    <state aliases="M-Files.QMS.NewMinorVersion.Approved" deleted="false" guid="{BBC8FD8E-687C-4697-B235-4768860AB8D5}" id="127" name="Content Approved" wfid="107" />
+    <state aliases="M-Files.QMS.NewMajorVersion.ContentApproved" deleted="false" guid="{B98DD511-DF63-41FC-AFD2-3BC781525184}" id="129" name="Content Approved" wfid="108" />
+    <state aliases="M-Files.QMS.SSDC.Workflow.NewMajorVer.State.PendAssign" deleted="false" full="true" guid="{19B62DBE-1CB0-4F13-9C08-0B3C290956B2}" id="173" name="Draft - Pending Assignment" wfid="119">
+      <description />
+      <inout checkaccess="false" editaccessrequired="false" restricttransitions="true">
+        <acl>
+          <cached id="aclcache-4-1" />
+        </acl>
+        <preconds>
+          <flags value="0" />
+          <criteria active="false" />
+          <script active="false" empty="true" />
+        </preconds>
+        <postconds>
+          <flags value="0" />
+          <criteria active="false" />
+          <script active="false" empty="true" />
+        </postconds>
+      </inout>
+      <autotransition nextstate="0" type="None">
+        <RelativeTime active="false" value="365" />
+        <CriteriaFulfilled active="false" />
+        <AllowedByScript active="false" empty="true" />
+        <AssignmentComplete active="false" />
+      </autotransition>
+      <actions value="41">
+        <delete active="false" />
+        <markforarchiving active="false" />
+        <changepermissions active="true" discardautomaticacls="false">
+          <acl>
+            <cached id="aclcache-1-1" />
+          </acl>
+        </changepermissions>
+        <createassignment active="true" separate="false">
+          <title />
+          <description>Review document and associated metadata, assign approvers.</description>
+          <deadline days="14" specified="false" />
+          <assignedto>
+            <group id="126" name="ssdcops\Quality Assurance" />
+          </assignedto>
+          <monitoredby />
+        </createassignment>
+        <createassignment active="false" separate="true">
+          <title />
+          <description />
+          <deadline days="14" specified="false" />
+          <assignedto />
+          <monitoredby />
+        </createassignment>
+        <sendnotification active="false">
+          <subject />
+          <message />
+          <recipients />
+        </sendnotification>
+        <setproperties active="true">
+          <defaultproperty allowRetainPreviousUserSpecifiedValue="false" pdid="1188" type="FixedValue">
+            <value datatype="Date" empty="true" />
+          </defaultproperty>
+          <defaultproperty allowRetainPreviousUserSpecifiedValue="false" pdid="1223" type="FixedValue">
+            <value datatype="MultiSelectLookup" empty="true" />
+          </defaultproperty>
+          <defaultproperty allowRetainPreviousUserSpecifiedValue="false" pdid="1224" type="FixedValue">
+            <value datatype="MultiSelectLookup" empty="true" />
+          </defaultproperty>
+        </setproperties>
+        <converttopdf active="false" failonunsupported="false" overwrite="false" pdfa1b="false" separatefile="false" />
+        <runscript active="false" empty="true" />
+      </actions>
+    </state>
+    <state aliases="M-Files.QMS.SSDC.Workflow.NewMajorVer.State.PendApproval" deleted="false" full="true" guid="{3DAC9999-12C3-4DD0-8F12-F0B50A397BEB}" id="174" name="Pending Approval" wfid="119">
+      <description />
+      <inout checkaccess="false" editaccessrequired="false" restricttransitions="true">
+        <acl>
+          <cached id="aclcache-4-1" />
+        </acl>
+        <preconds>
+          <flags value="0" />
+          <criteria active="false" />
+          <script active="false" empty="true" />
+        </preconds>
+        <postconds>
+          <flags value="0" />
+          <criteria active="false" />
+          <script active="false" empty="true" />
+        </postconds>
+      </inout>
+      <autotransition nextstate="0" type="None">
+        <RelativeTime active="false" value="365" />
+        <CriteriaFulfilled active="false" />
+        <AllowedByScript active="false" empty="true" />
+        <AssignmentComplete active="false" />
+      </autotransition>
+      <actions value="25">
+        <delete active="false" />
+        <markforarchiving active="false" />
+        <changepermissions active="true" discardautomaticacls="false">
+          <acl>
+            <cached id="aclcache-1-2" />
+          </acl>
+        </changepermissions>
+        <createassignment active="true" separate="false">
+          <title />
+          <description>Review and approve document.</description>
+          <deadline days="14" specified="false" />
+          <assignedto>
+            <pseudouserelements>
+              <pseudouserelement id="1223" name="Approvers" pos="1" type="PropertyDef" />
+            </pseudouserelements>
+          </assignedto>
+          <monitoredby />
+        </createassignment>
+        <createassignment active="false" separate="true">
+          <title />
+          <description />
+          <deadline days="14" specified="false" />
+          <assignedto />
+          <monitoredby />
+        </createassignment>
+        <sendnotification active="true">
+          <subject>%PROPERTY_0% requires your review and approval</subject>
+          <message>Please log into M-Files and review the document.</message>
+          <recipients>
+            <pseudouserelements>
+              <pseudouserelement id="1168" name="Working Copy(s)" pos="1" type="PropertyDef" />
+              <pseudouserelement id="1223" name="Approvers" pos="2" type="PropertyDef" />
+            </pseudouserelements>
+          </recipients>
+        </sendnotification>
+        <setproperties active="false" />
+        <converttopdf active="false" failonunsupported="false" overwrite="false" pdfa1b="false" separatefile="false" />
+        <runscript active="false" empty="true" />
+      </actions>
+    </state>
+    <state aliases="M-Files.QMS.SSDC.Workflow.NewMajorVer.State.Approve" deleted="false" full="true" guid="{4A26A922-65A1-43DD-9FDC-E39E0EA0F533}" id="178" name="Reviewer Approval" wfid="119">
+      <description />
+      <inout checkaccess="false" editaccessrequired="false" restricttransitions="true">
+        <acl>
+          <cached id="aclcache-4-1" />
+        </acl>
+        <preconds>
+          <flags value="0" />
+          <criteria active="false" />
+          <script active="false" empty="true" />
+        </preconds>
+        <postconds>
+          <flags value="0" />
+          <criteria active="false" />
+          <script active="false" empty="true" />
+        </postconds>
+      </inout>
+      <autotransition nextstate="0" type="AllowedByScript">
+        <RelativeTime active="false" value="365" />
+        <CriteriaFulfilled active="false" />
+        <AllowedByScript active="true" contenttype="vbs" empty="false" pathfrombase="Metadata\AdditionalData\States\178\AutoTransition.vbs" />
+        <AssignmentComplete active="false" />
+      </autotransition>
+      <actions value="64">
+        <delete active="false" />
+        <markforarchiving active="false" />
+        <changepermissions active="false" discardautomaticacls="false">
+          <acl>
+            <cached id="aclcache-1-3" />
+          </acl>
+        </changepermissions>
+        <createassignment active="false" separate="false">
+          <title />
+          <description />
+          <deadline days="14" specified="false" />
+          <assignedto />
+          <monitoredby />
+        </createassignment>
+        <createassignment active="false" separate="true">
+          <title />
+          <description />
+          <deadline days="14" specified="false" />
+          <assignedto />
+          <monitoredby />
+        </createassignment>
+        <sendnotification active="false">
+          <subject />
+          <message />
+          <recipients />
+        </sendnotification>
+        <setproperties active="false" />
+        <converttopdf active="false" failonunsupported="false" overwrite="false" pdfa1b="false" separatefile="false" />
+        <runscript active="true" contenttype="vbs" empty="false" pathfrombase="Metadata\AdditionalData\States\178\Action.vbs" />
+      </actions>
+    </state>
+    <state aliases="M-Files.QMS.SSDC.Workflow.NewMajorVer.State.ContentApproved" deleted="false" full="true" guid="{22E6A32F-59EA-4C6F-B60F-0CF2CEF5B6CD}" id="175" name="Content Approved" wfid="119">
+      <description />
+      <inout checkaccess="false" editaccessrequired="false" restricttransitions="true">
+        <acl>
+          <cached id="aclcache-4-1" />
+        </acl>
+        <preconds>
+          <flags value="0" />
+          <criteria active="false" />
+          <script active="false" empty="true" />
+        </preconds>
+        <postconds>
+          <flags value="0" />
+          <criteria active="false" />
+          <script active="false" empty="true" />
+        </postconds>
+      </inout>
+      <autotransition nextstate="176" type="CriteriaFulfilled">
+        <RelativeTime active="false" value="365" />
+        <CriteriaFulfilled active="true">
+          <searchcond pos="1">
+            <expression>
+              <TypedValueExpr otid="8" parentchildbehavior="None" type="Lookup">
+                <dfcall type="None" />
+              </TypedValueExpr>
+            </expression>
+            <condition type="Equal" />
+            <typedvalue datatype="MultiSelectLookup" empty="false">Content Approved; Content Approved; Content Approved<lookup deleted="false" guid="{BBC8FD8E-687C-4697-B235-4768860AB8D5}" id="127" otid="8" value="Content Approved" version="-1" /><lookup deleted="false" guid="{B98DD511-DF63-41FC-AFD2-3BC781525184}" id="129" otid="8" value="Content Approved" version="-1" /><lookup deleted="false" guid="{22E6A32F-59EA-4C6F-B60F-0CF2CEF5B6CD}" id="175" otid="8" value="Content Approved" version="-1" /></typedvalue>
+          </searchcond>
+        </CriteriaFulfilled>
+        <AllowedByScript active="false" contenttype="vbs" empty="false" pathfrombase="Metadata\AdditionalData\States\175\AutoTransition.vbs" />
+        <AssignmentComplete active="false" />
+      </autotransition>
+      <actions value="1">
+        <delete active="false" />
+        <markforarchiving active="false" />
+        <changepermissions active="true" discardautomaticacls="false">
+          <acl>
+            <cached id="aclcache-1-2" />
+          </acl>
+        </changepermissions>
+        <createassignment active="false" separate="false">
+          <title />
+          <description />
+          <deadline days="14" specified="false" />
+          <assignedto />
+          <monitoredby />
+        </createassignment>
+        <createassignment active="false" separate="true">
+          <title />
+          <description />
+          <deadline days="14" specified="false" />
+          <assignedto />
+          <monitoredby />
+        </createassignment>
+        <sendnotification active="false">
+          <subject />
+          <message />
+          <recipients />
+        </sendnotification>
+        <setproperties active="false" />
+        <converttopdf active="false" failonunsupported="false" overwrite="false" pdfa1b="false" separatefile="false" />
+        <runscript active="false" empty="true" />
+      </actions>
+    </state>
+    <state aliases="M-Files.QMS.SSDC.Workflow.NewMajorVersion.state.Authorized" deleted="false" full="true" guid="{0E3653CA-284C-43C3-8EBF-00B2078480F5}" id="176" name="Authorized" wfid="119">
+      <description />
+      <inout checkaccess="false" editaccessrequired="false" restricttransitions="true">
+        <acl>
+          <cached id="aclcache-4-1" />
+        </acl>
+        <preconds>
+          <flags value="0" />
+          <criteria active="false" />
+          <script active="false" empty="true" />
+        </preconds>
+        <postconds>
+          <flags value="0" />
+          <criteria active="false" />
+          <script active="false" empty="true" />
+        </postconds>
+      </inout>
+      <autotransition nextstate="0" type="None">
+        <RelativeTime active="false" value="365" />
+        <CriteriaFulfilled active="false" />
+        <AllowedByScript active="false" empty="true" />
+        <AssignmentComplete active="false" />
+      </autotransition>
+      <actions value="57">
+        <delete active="false" />
+        <markforarchiving active="false" />
+        <changepermissions active="true" discardautomaticacls="false">
+          <acl>
+            <cached id="aclcache-1-4" />
+          </acl>
+        </changepermissions>
+        <createassignment active="true" separate="false">
+          <title />
+          <description>Final review, assign document Effective Date, and release.</description>
+          <deadline days="14" specified="false" />
+          <assignedto>
+            <group id="122" name="ssdcops\Mgmt_Rep" />
+            <group id="125" name="ssdcops\QA_Head" />
+          </assignedto>
+          <monitoredby />
+        </createassignment>
+        <createassignment active="false" separate="true">
+          <title />
+          <description />
+          <deadline days="14" specified="false" />
+          <assignedto />
+          <monitoredby />
+        </createassignment>
+        <sendnotification active="true">
+          <subject>%PROPERTY_0% has been approved and is ready for release.</subject>
+          <message>Please log into M-Files, review, assign an effective date, and release.</message>
+          <recipients />
+        </sendnotification>
+        <setproperties active="true">
+          <defaultproperty allowRetainPreviousUserSpecifiedValue="false" pdid="1176" type="FixedValue">
+            <value datatype="Lookup" empty="false">Approved<lookup deleted="false" extidstatus="Internal" guid="{3CD818E9-1C84-40DB-8E1A-E9C0866D0D88}" id="2" otid="128" value="Approved" version="-1" /></value>
+          </defaultproperty>
+        </setproperties>
+        <converttopdf active="false" failonunsupported="false" overwrite="false" pdfa1b="false" separatefile="false" />
+        <runscript active="false" empty="true" />
+      </actions>
+    </state>
+    <state aliases="M-Files.QMS.SSDC.Workflow.NewMajorVersion.state.Released" deleted="false" full="true" guid="{D248B5C7-7B5E-47D0-970A-27529016A3C3}" id="177" name="Released" wfid="119">
+      <description />
+      <inout checkaccess="false" editaccessrequired="false" restricttransitions="true">
+        <acl>
+          <cached id="aclcache-4-1" />
+        </acl>
+        <preconds>
+          <flags value="1">
+            <Criteria value="1" />
+          </flags>
+          <criteria active="true">
+            <searchcond pos="1">
+              <expression>
+                <PropertyValueExpr parentchildbehavior="None" pdid="1188">
+                  <dfcall type="None" />
+                </PropertyValueExpr>
+              </expression>
+              <condition type="NotEqual" />
+              <typedvalue datatype="Date" empty="true" />
+            </searchcond>
+          </criteria>
+          <script active="false" empty="true" />
+        </preconds>
+        <postconds>
+          <flags value="0" />
+          <criteria active="false" />
+          <script active="false" empty="true" />
+        </postconds>
+      </inout>
+      <autotransition nextstate="0" type="None">
+        <RelativeTime active="false" value="365" />
+        <CriteriaFulfilled active="false" />
+        <AllowedByScript active="false" empty="true" />
+        <AssignmentComplete active="false" />
+      </autotransition>
+      <actions value="33">
+        <delete active="false" />
+        <markforarchiving active="false" />
+        <changepermissions active="true" discardautomaticacls="false">
+          <acl>
+            <cached id="aclcache-1-2" />
+          </acl>
+        </changepermissions>
+        <createassignment active="false" separate="false">
+          <title />
+          <description />
+          <deadline days="14" specified="false" />
+          <assignedto />
+          <monitoredby />
+        </createassignment>
+        <createassignment active="false" separate="true">
+          <title />
+          <description />
+          <deadline days="14" specified="false" />
+          <assignedto />
+          <monitoredby />
+        </createassignment>
+        <sendnotification active="false">
+          <subject />
+          <message />
+          <recipients />
+        </sendnotification>
+        <setproperties active="true">
+          <defaultproperty allowRetainPreviousUserSpecifiedValue="false" pdid="1176" type="FixedValue">
+            <value datatype="Lookup" empty="false">Released<lookup deleted="false" extidstatus="Internal" guid="{D953B617-8B55-4795-BD65-78A80EE047B7}" id="1" otid="128" value="Released" version="-1" /></value>
+          </defaultproperty>
+        </setproperties>
+        <converttopdf active="false" failonunsupported="false" overwrite="false" pdfa1b="false" separatefile="false" />
+        <runscript active="false" empty="true" />
+      </actions>
+    </state>
+  </states>
+  <useraccounts />
+  <usergroups>
+    <group aliases="" deleted="false" externalname="" guid="{9E126FBA-9FE2-4867-A1DF-B256436893AB}" id="1" name="All internal users" />
+    <group aliases="" deleted="false" externalname="" guid="{C0038C58-FF9F-4D1B-80D9-407831486D35}" id="2" name="All internal and external users" />
+    <group aliases="" deleted="false" externalname="ssdcops\Mgmt_Rep" guid="{A9459A6F-CE6F-469A-B718-7F65C1AB45D6}" id="122" name="ssdcops\Mgmt_Rep" />
+    <group aliases="" deleted="false" externalname="ssdcops\QA_Head" guid="{D5628E19-FD1A-4052-A8C3-E25BDA1641F0}" id="125" name="ssdcops\QA_Head" />
+    <group aliases="" deleted="false" externalname="ssdcops\Quality Assurance" guid="{9040234E-BEF0-42E0-8A2A-599628EDFDC0}" id="126" name="ssdcops\Quality Assurance" />
+  </usergroups>
+  <viewdefs />
+  <eventhandlers />
+</structure>
